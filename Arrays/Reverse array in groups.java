@@ -1,23 +1,21 @@
 class Solution {
     // Function to reverse every sub-array group of size k.
-    void reverseInGroups(ArrayList<Integer> arr, int n, int k) {
-        // Traverse the array in chunks of size k
-        for (int start = 0; start < n; start += k) {
-            // Determine the end of the current chunk
-            int end = Math.min(start + k - 1, n - 1);
-            // Reverse the elements in the current chunk
-            reverse(arr, start, end);
-        }
-    }
-    
-    // Helper function to reverse elements from start to end indices in the list
-    void reverse(ArrayList<Integer> arr, int start, int end) {
-        while (start < end) {
-            int temp = arr.get(start);
-            arr.set(start, arr.get(end));
-            arr.set(end, temp);
-            start++;
-            end--;
+    void reverseInGroups(ArrayList<Long> arr, int k) {
+        int n = arr.size();
+        for (int i = 0; i < n; i += k) {
+            int left = i;
+            // to handle case when k is not multiple of n
+            int right = Math.min(i + k - 1, n - 1);
+            // reverse the sub-array [left, right]
+            while (left < right) {
+                long temp = arr.get(left);
+                arr.set(left, arr.get(right));
+                arr.set(right, temp);
+                left++;
+                right--;
+            }
         }
     }
 }
+
+// 
