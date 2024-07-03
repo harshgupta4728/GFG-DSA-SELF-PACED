@@ -4,7 +4,7 @@ class Solution {
         int n = arr.size();
         for (int i = 0; i < n; i += k) {
             int left = i;
-            // to handle case when k is not multiple of n
+            // to handle case when k is not a multiple of n
             int right = Math.min(i + k - 1, n - 1);
             // reverse the sub-array [left, right]
             while (left < right) {
@@ -17,5 +17,3 @@ class Solution {
         }
     }
 }
-
-// 
